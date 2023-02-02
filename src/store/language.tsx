@@ -5,7 +5,7 @@ interface LanguageState {
 }
 
 const initialState: LanguageState = {
-  language: localStorage.getItem('Locale') || 'الانجليزية',
+  language: localStorage.getItem('Locale') || 'en',
 };
 
 const languageSlice = createSlice({

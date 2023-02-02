@@ -10,7 +10,6 @@ import { Arabic, English } from '../../data/translate.js';
 const Navbar = () => {
   const dispatch = useDispatch();
   const lang = useSelector((state: RootState) => state.language.language);
-  console.log(lang);
 
   const handleLanguageChange = () => {
     if (lang === 'en') {

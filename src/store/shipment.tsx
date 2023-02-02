@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface InitialState {
   data: any;
+  error: any;
 }
 
 const initialState: InitialState = {
   data: null,
+  error: null,
 };
 
 const shipment = createSlice({
@@ -15,8 +17,11 @@ const shipment = createSlice({
     storeData: (state, action: PayloadAction<any>) => {
       state.data = action.payload;
     },
+    storeError: (state, action: PayloadAction<any>) => {
+      state.error = action.payload;
+    },
   },
 });
 
-export const { storeData } = shipment.actions;
+export const { storeData, storeError } = shipment.actions;
 export default shipment.reducer;

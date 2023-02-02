@@ -1,0 +1,38 @@
+.shipment-section {
+  margin-top: 96px;
+  text-align: center;
+}
+
+.shipment-header {
+  font-size: 16px;
+  color: var(--secondary-color);
+}
+
+.display-xl {
+  font-size: 40px;
+  line-height: 56px;
+  letter-spacing: 0;
+  font-weight: var(--bold-font);
+}
+
+.progress-bars {
+  display: flex;
+  max-width: 634px;
+  margin: 1.5rem auto;
+
+  width: 100%;
+  grid-gap: 4px;
+  gap: 4px;
+}
+
+.bar {
+  background-color: #0098a5;
+  height: 6px;
+  border-radius: 0 64px 64px 0;
+}
+
+hr {
+  background-color: #d9f4f8;
+  width: 100%;
+  border: unset;
+}

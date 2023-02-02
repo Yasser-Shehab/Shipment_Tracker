@@ -29,9 +29,8 @@
   transition: outline 0.3s ease-in-out;
   line-height: 22px;
   font-family: 'Cairo';
-  transition: 0.5s;
+  transition: 0.15s;
   outline: none;
-
   &:focus {
     border: 3px solid #cceaed;
   }

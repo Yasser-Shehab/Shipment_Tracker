@@ -13,6 +13,7 @@ const useFetch = <T,>(url: string): FetchData<T> => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (url === '') return;
       setIsLoading(true);
       try {
         const response = await fetch(url);
@@ -29,3 +30,5 @@ const useFetch = <T,>(url: string): FetchData<T> => {
 
   return { data, error, isLoading };
 };
+
+export default useFetch;
