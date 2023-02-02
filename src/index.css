@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+:root {
+  --regular-font: 400;
+  --semibold-font: 600;
+  --medium-font: 500;
+  --bold-font: 700;
+  --primary-color: #e30613;
+  --text-color: #111619;
+  --secondary-color: #667085;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+}
+
+.br-shipment-tracking-image {
+  margin-top: 200px;
+}
+
+p {
+  font-weight: 700;
+  font-size: 32px;
+}
