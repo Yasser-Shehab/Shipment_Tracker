@@ -2,6 +2,8 @@ import './Shipment.scss';
 import type { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { Order } from '../../data/translate';
+import Bar from '../../Shared/Bar/Bar';
+import { ShipmentState as statusArray } from '../../data/translate';
 
 const Shipment = () => {
   const shipmentData = useSelector((state: RootState) => state.shipment.data);
@@ -14,9 +16,9 @@ const Shipment = () => {
       <span className='display-xl'>{Order[shipmentState]}</span>
 
       <div className='progress-bars'>
-        <hr className='bar' />
-        <hr className='bar' />
-        <hr className={shipmentState === 'DELIVERED_TO_SENDER' ? '' : 'bar'} />
+        {statusArray[shipmentState].map((item: string) => {
+          return <Bar barClass={item} />;
+        })}
       </div>
     </section>
   );

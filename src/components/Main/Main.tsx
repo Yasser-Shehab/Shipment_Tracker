@@ -5,6 +5,7 @@ import type { RootState } from '../../store/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { storeData, storeError } from '../../store/shipment';
 import Shipment from '../Shipment/Shipment';
+import Loading from '../../Shared/Loading/Loading.js';
 
 const API = 'https://tracking.bosta.co/shipments/track/';
 
@@ -14,7 +15,6 @@ const Main = () => {
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [trackCode, setTrackCode] = useState('');
-  console.log(isLoading);
 
   const fetchData = async (url: string) => {
     setIsLoading(true);
@@ -51,7 +51,9 @@ const Main = () => {
           <img src={searchIcon} alt='Search Icon' />
         </button>
       </div>
-      {shipmentData ? <Shipment /> : null}
+      {isLoading ? <Loading /> : null}
+
+      {shipmentData && !isLoading ? <Shipment /> : null}
     </section>
   );
 };
