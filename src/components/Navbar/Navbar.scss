@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.logo {
+  width: 120px;
+  height: 36px;
+}
+
+.arrow-image {
+  width: 15px;
+  padding: 3px;
+}
+
+.language {
+  display: flex;
+  p {
+    font-weight: var(--bold-font);
+  }
+  &:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+    .arrow-image {
+      transform: rotate(90deg);
+      fill: red;
+    }
+  }
+}

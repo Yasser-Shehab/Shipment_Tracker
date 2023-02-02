@@ -8,6 +8,7 @@
   --primary-color: #e30613;
   --text-color: #111619;
   --secondary-color: #667085;
+  --website-width: 1400px;
 }
 
 * {
@@ -21,11 +22,7 @@ body {
   direction: rtl;
 }
 
-.br-shipment-tracking-image {
-  margin-top: 200px;
-}
-
-p {
-  font-weight: 700;
-  font-size: 32px;
+.container {
+  max-width: var(--website-width);
+  margin: 0 auto;
 }
