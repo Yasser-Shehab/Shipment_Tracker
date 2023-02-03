@@ -52,7 +52,7 @@ const Main = () => {
           placeholder='رقم التتبع'
           className='search-input'
           ref={trackCodeRef}
-          // onChange={(e) => setTrackCode(e.target.value)}
+          
         />
         <button className='search-button' onClick={handleSubmit}>
           <img src={searchIcon} alt='Search Icon' />

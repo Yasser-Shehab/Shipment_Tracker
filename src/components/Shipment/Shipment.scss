@@ -24,8 +24,9 @@
 .progress-bars {
   display: flex;
   max-width: 634px;
+  justify-content: center;
   margin: 1.5rem auto;
-
+  padding: 0 1rem;
   width: 100%;
   grid-gap: 4px;
   gap: 4px;
@@ -75,6 +76,7 @@ hr {
 .shipment--timeline {
   display: flex;
   flex-direction: column;
+
   align-items: start;
   width: 100%;
   .timeline__title {
@@ -103,6 +105,7 @@ hr {
     border: 1px solid #e4e7ec;
     border-radius: 8px;
     margin: 0 1rem;
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -125,7 +128,7 @@ hr {
 .log-card {
   display: flex;
 
-  justify-content: center;
+  justify-content: right;
 }
 
 .log-content {
@@ -137,6 +140,4 @@ hr {
 }
 
 .transit-event {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
 }

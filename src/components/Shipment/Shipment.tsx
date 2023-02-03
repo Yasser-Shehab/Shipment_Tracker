@@ -13,6 +13,7 @@ import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import Divider from '../../Shared/Divider/Divider';
 import 'dayjs/locale/ar';
 import * as localizedFormat from 'dayjs/plugin/localizedFormat';
+import { Transit } from '../../data/translate';
 
 const Shipment = (props: any) => {
   dayjs.locale('ar');
@@ -42,6 +43,7 @@ const Shipment = (props: any) => {
     const shipmentState = state.state;
     const shipmentDate = state.timestamp;
     console.log(TransitEvents);
+    const shipmentEvents = TransitEvents.slice(0).reverse();
     return (
       <section className='shipment-section'>
         <p className='shipment__header'>رقم الشحنة {TrackingNumber}</p>
@@ -62,9 +64,9 @@ const Shipment = (props: any) => {
           <div className='timeline__title'>تفاصيل التتبع</div>
           <div className='timeline__logs'>
             <ul>
-              {TransitEvents.map((item: any, index: number) => {
+              {shipmentEvents.map((item: any, index: number) => {
                 return (
-                  <li className='transit-event'>
+                  <li className='transit-event' key={index}>
                     <div className='log-card'>
                       <div className='timeline-connector'>
                         <div className='head'></div>
@@ -75,7 +77,7 @@ const Shipment = (props: any) => {
                           {`${dayjs(item.timestamp).locale('ar').format('dddd, DD MMM')}`}
                         </div>
                         <div className='log__body'>
-                          <span>التاجر طلب استلام الشحنة, سنقوم بالاستلام قريبا</span>
+                          <span>{Transit[item.state]}</span>
                           <span className='log__date'>{`الساعة ${dayjs(item.timestamp)
                             .locale('ar')
                             .format('LT')}`}</span>
