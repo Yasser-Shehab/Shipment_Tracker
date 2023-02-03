@@ -8,21 +8,12 @@ import alert from '../../assets/Images/Warning.svg';
 import { Errors } from '../../data/translate';
 import 'dayjs/locale/ar';
 import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import Divider from '../../Shared/Divider/Divider';
 import 'dayjs/locale/ar';
-import * as localizedFormat from 'dayjs/plugin/localizedFormat';
 import { Transit } from '../../data/translate';
+import TransitEvent from '../TransitEvent/TransitEvent';
 
 const Shipment = (props: any) => {
-  dayjs.locale('ar');
-  dayjs.extend(relativeTime);
-  dayjs.extend(preParsePostFormat);
-  dayjs.extend(localizedFormat);
-
-  // console.log(dayjs('2018-05-05').format('MMM'));
-  const dateToFormat = '1976-04-19T12:59-0500';
   const shipmentData = useSelector((state: RootState) => state.shipment.data);
   const shipmentError = useSelector((state: RootState) => state.shipment.error);
 
@@ -64,29 +55,7 @@ const Shipment = (props: any) => {
           <div className='timeline__title'>تفاصيل التتبع</div>
           <div className='timeline__logs'>
             <ul>
-              {shipmentEvents.map((item: any, index: number) => {
-                return (
-                  <li className='transit-event' key={index}>
-                    <div className='log-card'>
-                      <div className='timeline-connector'>
-                        <div className='head'></div>
-                        <div className='tail'></div>
-                      </div>
-                      <div className='log-content'>
-                        <div className='log__heading'>
-                          {`${dayjs(item.timestamp).locale('ar').format('dddd, DD MMM')}`}
-                        </div>
-                        <div className='log__body'>
-                          <span>{Transit[item.state]}</span>
-                          <span className='log__date'>{`الساعة ${dayjs(item.timestamp)
-                            .locale('ar')
-                            .format('LT')}`}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })}
+              <TransitEvent shipmentEvents={shipmentEvents} />
             </ul>
           </div>
         </div>
