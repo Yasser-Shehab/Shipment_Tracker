@@ -45,15 +45,9 @@ const Main = () => {
   return (
     <section className='main-container'>
       <h4 className='header-section'>تتبع شحنتك</h4>
-      <textarea value='9442984/1094442/6636234'></textarea>
+
       <div className='search-container'>
-        <input
-          type='text'
-          placeholder='رقم التتبع'
-          className='search-input'
-          ref={trackCodeRef}
-          
-        />
+        <input type='text' placeholder='رقم التتبع' className='search-input' ref={trackCodeRef} />
         <button className='search-button' onClick={handleSubmit}>
           <img src={searchIcon} alt='Search Icon' />
         </button>

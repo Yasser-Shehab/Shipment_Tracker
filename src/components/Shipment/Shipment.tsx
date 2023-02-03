@@ -2,14 +2,12 @@ import './Shipment.scss';
 import type { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { Order } from '../../data/translate';
-
 import alert from '../../assets/Images/Warning.svg';
 import { Errors } from '../../data/translate';
 import 'dayjs/locale/ar';
 import dayjs from 'dayjs';
 import Divider from '../../Shared/Divider/Divider';
 import 'dayjs/locale/ar';
-import { Transit } from '../../data/translate';
 import TransitEvent from '../TransitEvent/TransitEvent';
 import ProgressBars from '../../Shared/ProgressBars/ProgressBars';
 
