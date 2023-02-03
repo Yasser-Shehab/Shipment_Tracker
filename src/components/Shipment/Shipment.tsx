@@ -9,11 +9,16 @@ import { Errors } from '../../data/translate';
 import 'dayjs/locale/ar';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import Divider from '../../Shared/Divider/Divider';
+import 'dayjs/locale/ar';
+import * as localizedFormat from 'dayjs/plugin/localizedFormat';
 
 const Shipment = (props: any) => {
   dayjs.locale('ar');
   dayjs.extend(relativeTime);
+  dayjs.extend(preParsePostFormat);
+  dayjs.extend(localizedFormat);
 
   // console.log(dayjs('2018-05-05').format('MMM'));
   const dateToFormat = '1976-04-19T12:59-0500';
@@ -33,10 +38,10 @@ const Shipment = (props: any) => {
       </section>
     );
   } else if (shipmentData && !shipmentError) {
-    const { TrackingNumber, CurrentStatus: state } = shipmentData;
+    const { TrackingNumber, CurrentStatus: state, TransitEvents } = shipmentData;
     const shipmentState = state.state;
     const shipmentDate = state.timestamp;
-
+    console.log(TransitEvents);
     return (
       <section className='shipment-section'>
         <p className='shipment__header'>رقم الشحنة {TrackingNumber}</p>
@@ -55,7 +60,21 @@ const Shipment = (props: any) => {
         </div>
         <div className='shipment--timeline'>
           <div className='timeline__title'>تفاصيل التتبع</div>
-          <div className='timeline__logs'></div>
+          <div className='timeline__logs'>
+            <ul>
+              <li>
+                <div className='log__heading'>
+                  {`${dayjs('1976-04-19T12:59-0500').locale('ar').format('dddd, DD MMM')}`}
+                </div>
+                <div className='log__body'>
+                  <span>التاجر طلب استلام الشحنة, سنقوم بالاستلام قريبا</span>
+                  <span>{`الساعة ${dayjs('1976-04-19T12:59-0500')
+                    .locale('ar')
+                    .format('LT')}`}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     );
