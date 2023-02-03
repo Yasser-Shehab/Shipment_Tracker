@@ -9,12 +9,12 @@ import Loading from '../../Shared/Loading/Loading.js';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
-import * as localizedFormat from 'dayjs/plugin/localizedFormat';
+// import * as localizedFormat from 'dayjs/plugin/localizedFormat';
 
 dayjs.locale('ar');
 dayjs.extend(relativeTime);
 dayjs.extend(preParsePostFormat);
-dayjs.extend(localizedFormat);
+// dayjs.extend(localizedFormat);
 
 const API = 'https://tracking.bosta.co/shipments/track/';
 
