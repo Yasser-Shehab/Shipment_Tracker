@@ -23,6 +23,7 @@ const Main = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data);
       if (!data.error) {
         dispatch(storeData(data));
       } else {
