@@ -16,6 +16,7 @@ const shipment = createSlice({
   reducers: {
     storeData: (state, action: PayloadAction<any>) => {
       state.data = action.payload;
+      state.error = null;
     },
     storeError: (state, action: PayloadAction<any>) => {
       state.error = action.payload;

@@ -12,6 +12,7 @@ const API = 'https://tracking.bosta.co/shipments/track/';
 const Main = () => {
   const dispatch = useDispatch();
   const shipmentData = useSelector((state: RootState) => state.shipment.data);
+  const shipmentError = useSelector((state: RootState) => state.shipment.error);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [trackCode, setTrackCode] = useState('');
@@ -40,6 +41,7 @@ const Main = () => {
   return (
     <section className='main-container'>
       <h4 className='header-section'>تتبع شحنتك</h4>
+      <textarea value='9442984/1094442/6636234'></textarea>
       <div className='search-container'>
         <input
           type='text'
@@ -53,7 +55,7 @@ const Main = () => {
       </div>
       {isLoading ? <Loading /> : null}
 
-      {shipmentData && !isLoading ? <Shipment /> : null}
+      {shipmentData || shipmentError ? <Shipment /> : null}
     </section>
   );
 };
