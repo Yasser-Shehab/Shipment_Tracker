@@ -1,0 +1,17 @@
+.log-card {
+  display: flex;
+
+  justify-content: right;
+}
+
+.log-content {
+  position: relative;
+}
+
+.log__date {
+  color: var(--secondary-color);
+}
+
+.hub {
+  font-weight: 600;
+}

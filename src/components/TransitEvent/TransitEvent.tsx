@@ -1,5 +1,6 @@
 import { Transit } from '../../data/translate';
 import dayjs from 'dayjs';
+import './TransitEvent.scss';
 
 const TransitEvent = (props: any) => {
   const { shipmentEvents } = props;
@@ -7,7 +8,7 @@ const TransitEvent = (props: any) => {
     <>
       {shipmentEvents.map((item: any, index: number) => {
         return (
-          <li className='transit-event' key={index}>
+          <li key={index}>
             <div className='log-card'>
               <div className='timeline-connector'>
                 <div className='head'></div>
@@ -19,6 +20,7 @@ const TransitEvent = (props: any) => {
                 </div>
                 <div className='log__body'>
                   <span>{Transit[item.state]}</span>
+                  <span className='hub'>{item.hub}</span>
                   <span className='log__date'>{`الساعة ${dayjs(item.timestamp)
                     .locale('ar')
                     .format('LT')}`}</span>

@@ -13,7 +13,6 @@ const Main = () => {
   const dispatch = useDispatch();
   const shipmentData = useSelector((state: RootState) => state.shipment.data);
   const shipmentError = useSelector((state: RootState) => state.shipment.error);
-  const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [trackCode, setTrackCode] = useState('');
   const trackCodeRef: any = useRef(null);
@@ -30,7 +29,7 @@ const Main = () => {
         dispatch(storeError(data));
       }
     } catch (error) {
-      setError(error as Error | null);
+      dispatch(storeError(error));
     } finally {
       setIsLoading(false);
     }
