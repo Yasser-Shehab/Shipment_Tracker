@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState } from '../../store/store';
 import { Arabic, English } from '../../data/translate.js';
 import { setLanguage } from '../../store/language';
 import arrow from '../../assets/Images/SmallArrow.svg';
+import './LanguageChange.scss';
 
 const LanguageChange = () => {
   const [showLang, setShowLang] = useState(false);

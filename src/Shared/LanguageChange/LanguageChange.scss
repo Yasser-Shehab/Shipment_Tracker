@@ -1,0 +1,40 @@
+.arrow-image {
+  width: 15px;
+  padding: 3px;
+}
+
+.language-change {
+  display: flex;
+  p {
+    font-weight: var(--bold-font);
+  }
+  &:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+    .arrow-image {
+      transform: rotate(90deg);
+      fill: red;
+    }
+  }
+}
+
+.language {
+  position: relative;
+  user-select: none;
+  ul {
+    position: absolute;
+    list-style: none;
+    padding: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  li {
+    margin: 5px 12px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: rgba(224, 224, 224, 0.795);
+    }
+  }
+}
