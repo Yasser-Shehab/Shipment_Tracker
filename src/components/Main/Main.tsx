@@ -16,6 +16,7 @@ const Main = () => {
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [trackCode, setTrackCode] = useState('');
+  const trackCodeRef: any = useRef(null);
 
   const fetchData = async (url: string) => {
     setIsLoading(true);
@@ -27,7 +28,6 @@ const Main = () => {
       } else {
         dispatch(storeError(data));
       }
-      console.log(data);
     } catch (error) {
       setError(error as Error | null);
     } finally {
@@ -36,8 +36,10 @@ const Main = () => {
   };
 
   const handleSubmit = () => {
-    if (trackCode === '') return;
-    fetchData(`${API}${trackCode}`);
+    const trackValue = trackCodeRef.current.value;
+    if (!trackCodeRef && trackValue === '') return;
+    setTrackCode(trackValue);
+    fetchData(`${API}${trackValue}`);
   };
   return (
     <section className='main-container'>
@@ -48,7 +50,8 @@ const Main = () => {
           type='text'
           placeholder='رقم التتبع'
           className='search-input'
-          onChange={(e) => setTrackCode(e.target.value)}
+          ref={trackCodeRef}
+          // onChange={(e) => setTrackCode(e.target.value)}
         />
         <button className='search-button' onClick={handleSubmit}>
           <img src={searchIcon} alt='Search Icon' />

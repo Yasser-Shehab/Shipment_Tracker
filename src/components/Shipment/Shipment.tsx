@@ -11,7 +11,6 @@ const Shipment = (props: any) => {
   const shipmentData = useSelector((state: RootState) => state.shipment.data);
   const shipmentError = useSelector((state: RootState) => state.shipment.error);
 
-  console.log(shipmentError);
   if (shipmentError) {
     return (
       <section className='shipment-section'>
