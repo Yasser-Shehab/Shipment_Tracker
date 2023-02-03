@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import * as localizedFormat from 'dayjs/plugin/localizedFormat';
+
 dayjs.locale('ar');
 dayjs.extend(relativeTime);
 dayjs.extend(preParsePostFormat);

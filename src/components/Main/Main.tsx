@@ -51,6 +51,7 @@ const Main = () => {
           <img src={searchIcon} alt='Search Icon' />
         </button>
       </div>
+
       {isLoading ? <Loading /> : null}
 
       {(shipmentData || shipmentError) && !isLoading ? <Shipment trackCode={trackCode} /> : null}
