@@ -14,7 +14,7 @@ import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 dayjs.locale('ar');
 dayjs.extend(relativeTime);
 dayjs.extend(preParsePostFormat);
-// dayjs.extend(localizedFormat);
+
 
 const API = 'https://tracking.bosta.co/shipments/track/';
 
