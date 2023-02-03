@@ -7,7 +7,6 @@ import { Errors } from '../../data/translate';
 import 'dayjs/locale/ar';
 import dayjs from 'dayjs';
 import Divider from '../../Shared/Divider/Divider';
-import 'dayjs/locale/ar';
 import TransitEvent from '../TransitEvent/TransitEvent';
 import ProgressBars from '../../Shared/ProgressBars/ProgressBars';
 
@@ -53,6 +52,7 @@ const Shipment = (props: any) => {
             </ul>
           </div>
         </div>
+        <Divider />
       </section>
     );
   } else {
