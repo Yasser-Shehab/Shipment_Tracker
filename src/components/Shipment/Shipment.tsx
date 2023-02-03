@@ -62,17 +62,29 @@ const Shipment = (props: any) => {
           <div className='timeline__title'>تفاصيل التتبع</div>
           <div className='timeline__logs'>
             <ul>
-              <li>
-                <div className='log__heading'>
-                  {`${dayjs('1976-04-19T12:59-0500').locale('ar').format('dddd, DD MMM')}`}
-                </div>
-                <div className='log__body'>
-                  <span>التاجر طلب استلام الشحنة, سنقوم بالاستلام قريبا</span>
-                  <span>{`الساعة ${dayjs('1976-04-19T12:59-0500')
-                    .locale('ar')
-                    .format('LT')}`}</span>
-                </div>
-              </li>
+              {TransitEvents.map((item: any, index: number) => {
+                return (
+                  <li className='transit-event'>
+                    <div className='log-card'>
+                      <div className='timeline-connector'>
+                        <div className='head'></div>
+                        <div className='tail'></div>
+                      </div>
+                      <div className='log-content'>
+                        <div className='log__heading'>
+                          {`${dayjs(item.timestamp).locale('ar').format('dddd, DD MMM')}`}
+                        </div>
+                        <div className='log__body'>
+                          <span>التاجر طلب استلام الشحنة, سنقوم بالاستلام قريبا</span>
+                          <span className='log__date'>{`الساعة ${dayjs(item.timestamp)
+                            .locale('ar')
+                            .format('LT')}`}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
