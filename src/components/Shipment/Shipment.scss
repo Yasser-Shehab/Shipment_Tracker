@@ -76,6 +76,7 @@ hr {
 .shipment--timeline {
   display: flex;
   flex-direction: column;
+  margin: 0 1rem;
 
   align-items: start;
   width: 100%;
@@ -124,4 +125,3 @@ hr {
   margin-top: 10px;
   border-radius: 100px;
 }
-
