@@ -2,8 +2,7 @@ import './Shipment.scss';
 import type { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { Order } from '../../data/translate';
-import Bar from '../../Shared/Bar/Bar';
-import { ShipmentState as statusArray } from '../../data/translate';
+
 import alert from '../../assets/Images/Warning.svg';
 import { Errors } from '../../data/translate';
 import 'dayjs/locale/ar';
@@ -12,6 +11,7 @@ import Divider from '../../Shared/Divider/Divider';
 import 'dayjs/locale/ar';
 import { Transit } from '../../data/translate';
 import TransitEvent from '../TransitEvent/TransitEvent';
+import ProgressBars from '../../Shared/ProgressBars/ProgressBars';
 
 const Shipment = (props: any) => {
   const shipmentData = useSelector((state: RootState) => state.shipment.data);
@@ -39,11 +39,7 @@ const Shipment = (props: any) => {
       <section className='shipment-section'>
         <p className='shipment__header'>رقم الشحنة {TrackingNumber}</p>
         <span className='display-xl'>{Order[shipmentState]}</span>
-        <div className='progress-bars'>
-          {statusArray[shipmentState].map((item: string, index: number) => {
-            return <Bar barClass={item} key={index} />;
-          })}
-        </div>
+        <ProgressBars shipmentState={shipmentState} />
         <div></div>
         <div className='tracking__details'>{`(اخر تحديث من ${dayjs(
           shipmentDate
