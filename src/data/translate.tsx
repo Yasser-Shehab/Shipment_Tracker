@@ -18,3 +18,8 @@ export const ShipmentState: any = {
   DELIVERED_TO_SENDER: ['active', 'active', 'inactive'],
   CREATED: ['active', 'inactive', 'inactive'],
 };
+
+export const Errors: any = {
+  ErrorAr:
+    'لا يمكن العثور على أي سجل لرقم التتبع هذا في الوقت الحالي ، يرجى التحقق من الرقم والمحاولة مرة أخرى لاحقًا. لمزيد من المساعدة ، يرجى التواصل بخدمة العملاء.',
+};

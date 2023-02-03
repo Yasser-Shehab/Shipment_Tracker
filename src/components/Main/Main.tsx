@@ -36,6 +36,7 @@ const Main = () => {
   };
 
   const handleSubmit = () => {
+    if (trackCode === '') return;
     fetchData(`${API}${trackCode}`);
   };
   return (
@@ -55,7 +56,7 @@ const Main = () => {
       </div>
       {isLoading ? <Loading /> : null}
 
-      {shipmentData || shipmentError ? <Shipment /> : null}
+      {(shipmentData || shipmentError) && !isLoading ? <Shipment trackCode={trackCode} /> : null}
     </section>
   );
 };
